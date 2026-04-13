@@ -1,11 +1,1 @@
-[
-  {
-    "id": 1,
-    "responsavel": "Alice",
-    "tarefaPrincipal": "wqewq",
-    "subtasks": [],
-    "dataInicio": "2026-04-13T18:42:41.438Z",
-    "dataFinalizacao": "2026-04-13T18:42:43.133Z",
-    "status": "finalizada"
-  }
-]
+[]

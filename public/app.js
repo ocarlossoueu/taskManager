@@ -5,6 +5,7 @@ const tarefaPrincipalInput = document.getElementById('tarefaPrincipal');
 const subtasksInput = document.getElementById('subtasks');
 const taskList = document.getElementById('task-list');
 
+const btnCriar = document.getElementById('btn-criar');
 const btnSalvar = document.getElementById('btn-salvar');
 const btnCancelar = document.getElementById('btn-cancelar');
 
@@ -25,6 +26,10 @@ function clearForm() {
   tarefaPrincipalInput.value = '';
   subtasksInput.value = '';
   responsavelSelect.selectedIndex = 0;
+
+  btnCriar.style.display = 'inline-block';
+  btnSalvar.style.display = 'none';
+  btnCancelar.style.display = 'none';
 }
 
 async function loadUsers() {
@@ -49,7 +54,7 @@ function renderTasks(tasks) {
         <td class="small">${formatDate(task.dataFinalizacao)}</td>
         <td>${task.status}</td>
         <td>
-          <button class="btn-edit" data-edit="${task.id}">Salvar</button>
+          <button class="btn-edit" data-edit="${task.id}">Editar</button>
           <button class="btn-delete" data-delete="${task.id}">Deletar</button>
           <button class="btn-finish" data-finish="${task.id}">Finalizar tarefa</button>
         </td>
@@ -123,6 +128,10 @@ taskList.addEventListener('click', async (event) => {
     responsavelSelect.value = task.responsavel;
     tarefaPrincipalInput.value = task.tarefaPrincipal;
     subtasksInput.value = task.subtasks.join(', ');
+
+    btnCriar.style.display = 'none';
+    btnSalvar.style.display = 'inline-block';
+    btnCancelar.style.display = 'inline-block';
   }
 
   if (deleteId) {
@@ -138,3 +147,4 @@ taskList.addEventListener('click', async (event) => {
 
 loadUsers();
 loadTasks();
+clearForm(); // Inicializa o estado dos botões

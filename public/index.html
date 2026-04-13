@@ -1,54 +1,57 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CRUD de Tarefas (MVC)</title>
-    <link rel="stylesheet" href="/styles.css" />
-  </head>
-  <body>
-    <main class="container">
-      <h1>Sistema de Cadastro e Listagem de Tarefas</h1>
 
-      <form id="task-form" class="card">
-        <input type="hidden" id="task-id" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CRUD de Tarefas (MVC)</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
 
-        <label for="responsavel">Responsável</label>
-        <select id="responsavel" required></select>
+<body>
+  <main class="container">
+    <h1>Sistema de Cadastro e Listagem de Tarefas</h1>
 
-        <label for="tarefaPrincipal">Tarefa principal</label>
-        <input id="tarefaPrincipal" type="text" required />
+    <form id="task-form" class="card">
+      <input type="hidden" id="task-id" />
 
-        <label for="subtasks">Subtasks (separadas por vírgula)</label>
-        <input id="subtasks" type="text" placeholder="Ex: tela login, API, testes" />
+      <label for="responsavel">Responsável</label>
+      <select id="responsavel" required></select>
 
-        <div class="actions">
-          <button type="submit" id="btn-criar">Criar</button>
-          <button type="button" id="btn-salvar">Salvar</button>
-          <button type="button" id="btn-cancelar">Cancelar</button>
-        </div>
-      </form>
+      <label for="tarefaPrincipal">Tarefa principal</label>
+      <input id="tarefaPrincipal" type="text" required />
 
-      <section class="card">
-        <h2>Lista de tarefas</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Responsável</th>
-              <th>Tarefa principal</th>
-              <th>Subtasks</th>
-              <th>Data início</th>
-              <th>Data finalização</th>
-              <th>Status</th>
-              <th>Ações</th>
-            </tr>
-          </thead>
-          <tbody id="task-list"></tbody>
-        </table>
-      </section>
-    </main>
+      <label for="subtasks">Subtasks (separadas por vírgula)</label>
+      <input id="subtasks" type="text" placeholder="Ex: tela login, API, testes" />
 
-    <script src="/app.js"></script>
-  </body>
+      <div class="actions">
+        <button type="submit" id="btn-criar">Criar</button>
+        <button type="button" id="btn-salvar">Salvar</button>
+        <button type="button" id="btn-cancelar">Cancelar</button>
+      </div>
+    </form>
+
+    <section class="card">
+      <h2>Lista de tarefas</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Responsável</th>
+            <th>Tarefa principal</th>
+            <th>Subtasks</th>
+            <th>Data início</th>
+            <th>Data finalização</th>
+            <th>Status</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="task-list"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+
 </html>

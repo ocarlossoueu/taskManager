@@ -1,8 +1,8 @@
 const fs = require('fs/promises');
 const path = require('path');
 
-const tasksFilePath = path.join(__dirname, '..', '..', 'data', 'tasks.txt');
-const usersFilePath = path.join(__dirname, '..', '..', 'data', 'users.txt');
+const tasksFilePath = path.join(__dirname, '..', '..', '..', 'data', 'tasks.txt');
+const usersFilePath = path.join(__dirname, '..', '..', '..', 'data', 'users.txt');
 
 async function readTasks() {
   try {

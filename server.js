@@ -6,8 +6,8 @@ const {
   updateTask,
   deleteTask,
   finalizeTask,
-} = require('./src/controllers/taskController');
-const { serveStatic } = require('./src/views/taskView');
+} = require('./tarefa-mvc/src/controllers/taskController');
+const { serveStatic } = require('./tarefa-mvc/src/views/taskView');
 
 const PORT = 3000;
 

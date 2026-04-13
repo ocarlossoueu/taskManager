@@ -13,7 +13,6 @@ Projeto em **HTML + CSS + JavaScript** sem frameworks, com persistência em arqu
 ## Como executar localmente
 
 ```bash
-cd tarefa-mvc
 node server.js
 ```
 

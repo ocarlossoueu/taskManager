@@ -3,3 +3,7 @@ Alice
 Bruno
 Carla
 Diego
+Rodrigo
+Jorge
+Otavio
+Marco

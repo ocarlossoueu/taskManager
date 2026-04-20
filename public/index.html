@@ -4,54 +4,114 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CRUD de Tarefas (MVC)</title>
-  <link rel="stylesheet" href="./styles.css" />
+  <title>Gerenciador de Tarefas</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
   <main class="container">
     <h1>Sistema de Cadastro e Listagem de Tarefas</h1>
 
-    <form id="task-form" class="card">
+    <!-- Feedback de operações -->
+    <div id="feedback" class="feedback hidden" role="alert" aria-live="polite"></div>
+
+    <!-- Formulário -->
+    <section class="card">
+      <h2 id="form-title">Nova Tarefa</h2>
       <input type="hidden" id="task-id" />
 
-      <label for="responsavel">Responsável</label>
-      <select id="responsavel" required></select>
+      <div class="field-group">
+        <label for="responsavel">Responsável <span class="required">*</span></label>
+        <select id="responsavel">
+          <option value="">Selecione um responsável</option>
+          <option value="Alice">Alice</option>
+          <option value="Bruno">Bruno</option>
+          <option value="Carla">Carla</option>
+          <option value="Diego">Diego</option>
+          <option value="Rodrigo">Rodrigo</option>
+          <option value="Jorge">Jorge</option>
+          <option value="Otavio">Otavio</option>
+          <option value="Marco">Marco</option>
+        </select>
+        <span class="field-error" id="error-responsavel"></span>
+      </div>
 
-      <label for="tarefaPrincipal">Tarefa principal</label>
-      <input id="tarefaPrincipal" type="text" required />
+      <div class="field-group">
+        <label for="tarefaPrincipal">Tarefa principal <span class="required">*</span></label>
+        <input
+          id="tarefaPrincipal"
+          type="text"
+          placeholder="Descreva a tarefa principal"
+          maxlength="200"
+        />
+        <span class="field-error" id="error-tarefaPrincipal"></span>
+      </div>
 
-      <label for="subtasks">Subtasks (separadas por vírgula)</label>
-      <input id="subtasks" type="text" placeholder="Ex: tela login, API, testes" />
+      <div class="field-group">
+        <label for="prioridade">Prioridade <span class="required">*</span></label>
+        <select id="prioridade">
+          <option value="">Selecione a prioridade</option>
+          <option value="Baixa">Baixa</option>
+          <option value="Média">Média</option>
+          <option value="Alta">Alta</option>
+        </select>
+        <span class="field-error" id="error-prioridade"></span>
+      </div>
+
+      <div class="field-group">
+        <label for="descricao">
+          Descrição
+          <span class="optional">(máx. 300 caracteres)</span>
+        </label>
+        <textarea
+          id="descricao"
+          placeholder="Detalhes adicionais sobre a tarefa..."
+          maxlength="300"
+          rows="3"
+        ></textarea>
+        <span class="char-count" id="char-count">0 / 300</span>
+      </div>
 
       <div class="actions">
-        <button type="submit" id="btn-criar">Criar</button>
-        <button type="button" id="btn-salvar">Salvar</button>
-        <button type="button" id="btn-cancelar">Cancelar</button>
+        <button type="button" id="btn-criar">Criar Tarefa</button>
+        <button type="button" id="btn-salvar" style="display:none">Salvar Alterações</button>
+        <button type="button" id="btn-cancelar" style="display:none">Cancelar</button>
       </div>
-    </form>
+    </section>
 
+    <!-- Filtros -->
+    <section class="card filtros">
+      <span class="filtro-label">Filtrar:</span>
+      <button class="btn-filtro active" data-filtro="todas">Todas</button>
+      <button class="btn-filtro" data-filtro="aberta">Abertas</button>
+      <button class="btn-filtro" data-filtro="concluida">Concluídas</button>
+    </section>
+
+    <!-- Lista -->
     <section class="card">
-      <h2>Lista de tarefas</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Responsável</th>
-            <th>Tarefa principal</th>
-            <th>Subtasks</th>
-            <th>Data início</th>
-            <th>Data finalização</th>
-            <th>Status</th>
-            <th>Ações</th>
-          </tr>
-        </thead>
-        <tbody id="task-list"></tbody>
-      </table>
+      <h2>Lista de Tarefas <span id="contador" class="contador"></span></h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Responsável</th>
+              <th>Tarefa Principal</th>
+              <th>Descrição</th>
+              <th>Prioridade</th>
+              <th>Status</th>
+              <th>Data de Início</th>
+              <th>Data de Conclusão</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="task-list"></tbody>
+        </table>
+      </div>
     </section>
   </main>
 
-  <script src="./app.js"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>
